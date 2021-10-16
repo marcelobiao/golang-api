@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  devbook_mysql:
+    image: mysql
+    container_name: mysql_devbook
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=devbook
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      - MYSQL_ROOT_HOST=%
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./db/mysqlData:/var/lib/mysql
